@@ -65,13 +65,17 @@ def make_attractions_and_rides
     attraction.each_with_index do |attribute, i|
       new_attraction.send(DATA[:attraction_keys][i] + "=", attribute)
     end
-    rand(1..8).times do
-      customers = []
-      User.all.each { |u| customers << u if u.admin != true }
-      new_attraction.users << customers[rand(0...customers.length)]
-    end
+    assign_users_to_attraction(new_attraction)
     new_attraction.users.each(&:save)
     new_attraction.save
+  end
+end
+
+def assign_users_to_attraction(attraction)
+  rand(1..8).times do
+    customers = []
+    User.all.each { |u| customers << u if u.admin != true }
+    attraction.users << customers[rand(0...customers.length)]
   end
 end
 

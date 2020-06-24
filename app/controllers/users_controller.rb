@@ -3,6 +3,12 @@ class UsersController < ApplicationController
   skip_before_action :set_user, only: [:new, :create]
 
   def show
+    #binding.pry
+    if params[:id].to_i == session[:user_id]
+      @user
+    else
+      redirect_to "/"
+    end
   end
 
   def new

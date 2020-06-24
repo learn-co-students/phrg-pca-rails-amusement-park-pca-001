@@ -1,6 +1,8 @@
 <h3> <%= @user.name%>'s Profile</h3>
+<%= "ADMIN" if @user.admin %>
 <ul>
   <li>Mood: <%= @user.mood %></li>
   <li>Tickets: <%= @user.tickets %></li>
   <li>Height: <%= @user.height %></li>
 </ul>
+<%= link_to "Log Out", logout_path %>

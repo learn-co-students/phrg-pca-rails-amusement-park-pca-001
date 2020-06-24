@@ -1,6 +1,6 @@
 
-<%= form_tag ("/sessions/new") do %>
-  <%= collection_select "user", :name, @users, :name, :name, prompt: "Please select your username from this dropdown" %>
+<%= form_tag ("/sessions") do %>
+  <%= collection_select "user", :name, @users, :name, :name, prompt: "Please select your username from this dropdown" %><br>
   <%= label :password, "Your password:"%><br>
   <%= text_field_tag :password %>
   <%= submit_tag "Sign In"%>

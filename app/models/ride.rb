@@ -9,7 +9,7 @@ class Ride < ActiveRecord::Base
     end
 
     if user.height < attraction.min_height
-      msg << "You are not tall enough to ride the Roller Coaster."
+      msg << "You are not tall enough to ride the #{attraction.name}."
     end
 
     if msg.length > 1
@@ -21,6 +21,8 @@ class Ride < ActiveRecord::Base
       user.nausea = user.nausea + attraction.nausea_rating
       user.happiness = user.happiness + attraction.happiness_rating
       user.save
+
+      "Thanks for riding the #{attraction.name}!"
     end
   end
 end

@@ -1,5 +1,7 @@
 <h3> <%= @user.name%>'s Profile</h3>
 <%= "ADMIN" if @user.admin %>
+
+<%= link_to "See attractions", attractions_path %>
 <ul>
   <li>Mood: <%= @user.mood %></li>
   <li>Tickets: <%= @user.tickets %></li>

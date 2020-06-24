@@ -13,11 +13,13 @@ module ApplicationHelper
 
   def make_login
     if session[:user_id].blank?
-      @login_text = "Login"
+      @login_text = "Log in"
       @login_url = signin_path
+      @method = "get"
     else
-      @login_text = "Logout"
-      @login_url = "/"
+      @login_text = "Log Out"
+      @login_url = sessions_path
+      @method = "delete"
     end
   end
 end

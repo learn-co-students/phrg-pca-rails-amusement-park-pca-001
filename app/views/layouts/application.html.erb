@@ -21,7 +21,7 @@
           </button>
         <a class="navbar-brand" href="<%= root_url %>"/>Home</a>
         <a class="navbar-brand" href="<%= @signup_url %>"/><%= @signup_text %></a>
-        <a class="navbar-brand" href="<%= @login_url %>"/><%= @login_text %></a>
+        <%= link_to @login_text, @login_url, method: @method, class: "navbar-brand" %>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">

@@ -6,6 +6,10 @@ class User < ActiveRecord::Base
   has_secure_password
 
   def mood
-    happiness > nausea ? "happy" : "sad"
+    if happiness.blank? || nausea.blank?
+      return ""
+    else
+      happiness > nausea ? "happy" : "sad"
+    end
   end
 end

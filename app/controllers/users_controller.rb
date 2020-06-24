@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-
   def new
     @user = User.new
   end
@@ -13,9 +12,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    unless session[:user_id].present?
-      redirect_to root_path
-    end
+    redirect_to root_path unless session[:user_id].present?
   end
 
 private
@@ -23,5 +20,4 @@ private
   def user_params
     params.require(:user).permit(:name, :height, :happiness, :nausea, :tickets, :password, :admin)
   end
-
 end

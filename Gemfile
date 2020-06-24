@@ -21,6 +21,8 @@ gem "uglifier", ">= 1.3.0"
 
 # bootstrap
 
+gem "pry"
+
 gem "bootstrap-sass", "3.3.7"
 
 # Use CoffeeScript for .coffee assets and views

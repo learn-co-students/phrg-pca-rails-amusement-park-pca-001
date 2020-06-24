@@ -1,3 +1,5 @@
+<%= @attraction.name %></br>
 <%= form_for @attraction do |f| %>
   <%= f.submit "Go on this ride"%>
 <% end %>
+<%= link_to "Edit Attraction", attraction_path(@attraction) if @user.admin%>

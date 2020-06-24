@@ -5,5 +5,5 @@ Rails.application.routes.draw do
   get "/signin", to: "sessions#new"
   post "/signin", to: "sessions#create"
   resource :sessions, only: [:destroy]
-  resources :attractions, only: [:index, :show, :update]
+  resources :attractions, only: [:index, :new, :create, :show, :update]
 end

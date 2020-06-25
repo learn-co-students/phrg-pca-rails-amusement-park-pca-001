@@ -1,0 +1,15 @@
+<h1>Listing attractions</h1>
+<table>
+  <tr>
+    <th> Name </th>
+    <th> Tickets </th>
+    <th> Details </th>
+  </tr>
+<% @attractions.each do |att| %>
+<tr>
+  <td><%= att.name %></td>
+  <td><%= att.tickets %></td>
+  <td><%= link_to "Go on #{att.name}", att %></td>
+</tr>
+<%end%>
+</table>

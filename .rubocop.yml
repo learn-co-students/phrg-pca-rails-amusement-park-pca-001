@@ -1,7 +1,6 @@
 # These rules apply to the Nitro Umbrella app and all components.
 
-require:
-  - rubocop-performance
+require: rubocop-performance
 
 
 AllCops:

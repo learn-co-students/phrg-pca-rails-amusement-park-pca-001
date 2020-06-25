@@ -9,21 +9,21 @@ class AttractionsController < ApplicationController
     @attraction = Attraction.find(params[:id])
   end
 
-  def update
-    @user = User.find(session[:user_id])
+  def edit
     @attraction = Attraction.find(params[:id])
+  end
 
-    ride = Ride.create(user: @user, attraction: @attraction)
+  def update
+    @attraction = Attraction.find(params[:id])
+    @attraction.update(attraction_params)
 
-    flash.alert = ride.take_ride
-
-    redirect_to user_path(@user)
+    redirect_to attraction_path(@attraction)
   end
 
   def new
     user = User.find(session[:user_id])
 
-    if user && user.admin
+    if user&.admin
       @attraction = Attraction.new
     else
       redirect_to "/"

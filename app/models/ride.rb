@@ -17,10 +17,7 @@ class Ride < ActiveRecord::Base
 
     return ("Sorry." + response) unless response == ""
 
-    user.tickets -= attraction.tickets
-    user.nausea += attraction.nausea_rating
-    user.happiness += attraction.happiness_rating
-    user.save
+    update_user(user, attraction)
 
     "Thanks for riding the #{attraction.name}!"
   end
@@ -28,10 +25,21 @@ class Ride < ActiveRecord::Base
 private
 
   def enough_tickets?(tickets, ammount)
+    return false if tickets.blank?
+
     tickets >= ammount
   end
 
   def enough_height?(height, restrict)
+    return false if height.blank?
+
     height >= restrict
+  end
+
+  def update_user(user, attraction)
+    user.tickets -= attraction.tickets
+    user.nausea += attraction.nausea_rating
+    user.happiness += attraction.happiness_rating
+    user.save
   end
 end

@@ -7,12 +7,10 @@ class SessionsController < ApplicationController
     # "user"=>{"name"=>"diosu"}, "password"=>"fdsfdsfds"
     @user = User.find_by(name: params[:user][:name])
     # might be interesting to look at later
-    if @user.authenticate(params[:password])
-      session[:user_id] = @user.id
-      redirect_to user_path(@user)
-    else
-      binding.pry
-    end
+    return unless @user.authenticate(params[:password])
+
+    session[:user_id] = @user.id
+    redirect_to user_path(@user)
   end
 
   def destroy

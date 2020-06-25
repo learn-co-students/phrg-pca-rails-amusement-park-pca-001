@@ -1,5 +1,4 @@
 module ApplicationHelper
-
   def make_signup
     if session[:user_id].blank?
       @signup_text = "Sign Up"

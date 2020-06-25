@@ -4,7 +4,7 @@ git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
   "https://github.com/#{repo_name}.git"
 end
-
+gem 'pry'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem "bootsnap"
 gem "rails", "~> 5.1"
@@ -46,6 +46,7 @@ group :development, :test do
   gem "rack_session_access"
   gem "rspec-rails"
   gem "rubocop"
+  gem "rubocop-performance"
   gem "selenium-webdriver"
 end
 

@@ -1,0 +1,9 @@
+<h2> Ride <%= @attraction.name %></h2>
+
+<%= button_to "Go on this ride", rides_path,
+               params: {
+                         'ride[attraction_id]' => @attraction.id,
+                         'ride[user_id]' => session[:user_id]
+               } %><br>
+
+<%= link_to "Edit Attraction", edit_attraction_path(@attraction) %><br>

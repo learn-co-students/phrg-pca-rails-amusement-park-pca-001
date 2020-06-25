@@ -46,6 +46,7 @@ group :development, :test do
   gem "rack_session_access"
   gem "rspec-rails"
   gem "rubocop"
+  gem "rubocop-performance"
   gem "selenium-webdriver"
   gem "pry"
 end

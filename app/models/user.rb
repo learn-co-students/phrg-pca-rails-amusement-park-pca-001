@@ -3,10 +3,6 @@ class User < ActiveRecord::Base
   has_many :rides
   has_many :attractions, through: :rides
 
-  def admin
-    false
-  end
-
   def mood
     return unless nausea
     if self.nausea > self.happiness

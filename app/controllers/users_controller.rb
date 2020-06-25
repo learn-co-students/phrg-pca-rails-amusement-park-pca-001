@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+
   def new
     @user = User.new
   end
@@ -18,14 +19,9 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  def destroy
-    session.clear
-    redirect_to root_path
-  end
-
-  private
-
+private
   def user_params
-    params.require(:user).permit(:name, :password, :nausea, :happiness, :tickets, :height, :admin)
+    params.require(:user).permit(:name, :password, :happiness, :nausea, :height, :tickets, :admin)
   end
+
 end

@@ -1,22 +1,23 @@
 class SessionsController < ApplicationController
   def new
-    @user = User.new
+    @users = User.new
   end
 
   def create
-    # binding.pry
-    @user = User.find(params[:user][:name])
-    return unless @user.authenticate(params[:user][:password])
-
-    session[:user_id] = @user.id
-
-    redirect_to user_path(@user)
+    if @user = User.find_by(name: params[:user][:name])
+      session[:user_id] = @user.id
+      redirect_to user_path(@user)
+    else
+      redirect_to signin_path
+    end
   end
 
   def destroy
-    session.clear
+    session.delete :user_id
     redirect_to root_path
   end
+
+
 
 
 end

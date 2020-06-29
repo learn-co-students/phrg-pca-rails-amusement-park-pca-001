@@ -1,9 +1,3 @@
-<%= "ADMIN" if @user.admin %>
-
-Name: <%=@user.name%><br>
-Tickets: <%=@user.tickets%><br>
-Mood: <%=@user.mood%> <br>
-Height: <%=@user.height%> inches<br>
-<%= link_to 'See attractions', attractions_path %>
 <br>
-<%= link_to "Log Out", logout_path, method: :delete %>
+<br>
+<%= display_user %>

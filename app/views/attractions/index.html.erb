@@ -1,15 +1,19 @@
 <h1>Listing attractions</h1>
+ <% if current_user.admin%>
+    <%= render partial: 'admin', locals: {attractions: @attractions}%>
+  <% else %>
 <table>
+    <tr>
+      <th> Name </th>
+      <th> Tickets </th>
+      <th> Details </th>
+    </tr>
+  <% @attractions.each do |att| %>
   <tr>
-    <th> Name </th>
-    <th> Tickets </th>
-    <th> Details </th>
+    <td><%= att.name %></td>
+    <td><%= att.tickets %></td>
+    <td><%= link_to "Go on #{att.name}", att %></td>
   </tr>
-<% @attractions.each do |att| %>
-<tr>
-  <td><%= att.name %></td>
-  <td><%= att.tickets %></td>
-  <td><%= link_to "Go on #{att.name}", att %></td>
-</tr>
-<%end%>
+  <%end%>
 </table>
+<%end%>

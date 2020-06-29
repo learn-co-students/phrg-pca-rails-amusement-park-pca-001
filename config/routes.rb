@@ -1,14 +1,14 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  resources :rides
+  resources :rides, ony: [:create]
 
-  resources :users
+  resources :users, only: [:index, :new, :create, :show]
 
   resources :attractions
 
   root 'application#home'
 
   get '/signin', to: 'sessions#signin'
-  post '/signin', to: 'sessions#create'
-  delete '/logout', to: 'sessions#destroy'
+  post '/session', to: 'sessions#create'
+  get '/signout', to: 'sessions#destroy'
 end
